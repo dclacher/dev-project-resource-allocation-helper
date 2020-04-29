@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="59db7157c2ef45249f53e27223b0ade2" Name="SAARH" ZoomLevel="74">
+        <EntityTypeShape EntityType="SAARHModel.Avaliacao" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Competencia" Width="1.625" PointX="7.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Projeto" Width="1.75" PointX="0.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Projeto_Funcionario" Width="1.875" PointX="2.875" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Tipo_Competencia" Width="1.75" PointX="7.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Tipo_Usuario" Width="1.5" PointX="0.625" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Usu_Aval_Comp" Width="1.625" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAARHModel.Usuario" Width="1.75" PointX="2.875" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="SAARHModel.FK__Avaliacao__aval___1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Usu_Aval___uac_a__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Competenc__comp___29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Usu_Aval___uac_c__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Projeto__proj_us__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Projeto_F__prfu___182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Projeto_F__prfu___173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Usuario__usu_tip__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.FK__Usu_Aval___uac_u__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="SAARHModel.Projeto_Competencia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

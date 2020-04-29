@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaApoioAlocacaoRH", "SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH.csproj", "{DD49480D-B956-4CFB-AB7B-BFB2DB76C706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{A855CCEC-B2F8-4B5C-BD80-36B0C55DC300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{2E9EA9C6-1660-4445-9D92-02003CE51B3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apresentacao", "Apresentacao", "{BACAA848-5318-494B-A676-A1D1CA6D2DFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Negocios", "Negocios", "{A5E544CE-D0D6-4DCC-9D36-1E8DB4F6BDD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistencias", "Persistencias", "{7D899D98-41AD-4D27-B4A7-7ACCDB31BCE5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://repofiles.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SistemaApoioAlocacaoRH\\SistemaApoioAlocacaoRH.csproj
+		SccProjectTopLevelParentUniqueName1 = SistemaApoioAlocacaoRH.sln
+		SccProjectName1 = SistemaApoioAlocacaoRH
+		SccLocalPath1 = SistemaApoioAlocacaoRH
+		SccProjectUniqueName2 = Negocio\\Negocio.csproj
+		SccProjectTopLevelParentUniqueName2 = SistemaApoioAlocacaoRH.sln
+		SccProjectName2 = Negocio
+		SccLocalPath2 = Negocio
+		SccProjectUniqueName3 = Persistencia\\Persistencia.csproj
+		SccProjectTopLevelParentUniqueName3 = SistemaApoioAlocacaoRH.sln
+		SccProjectName3 = Persistencia
+		SccLocalPath3 = Persistencia
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD49480D-B956-4CFB-AB7B-BFB2DB76C706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD49480D-B956-4CFB-AB7B-BFB2DB76C706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD49480D-B956-4CFB-AB7B-BFB2DB76C706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD49480D-B956-4CFB-AB7B-BFB2DB76C706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A855CCEC-B2F8-4B5C-BD80-36B0C55DC300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A855CCEC-B2F8-4B5C-BD80-36B0C55DC300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A855CCEC-B2F8-4B5C-BD80-36B0C55DC300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A855CCEC-B2F8-4B5C-BD80-36B0C55DC300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9EA9C6-1660-4445-9D92-02003CE51B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9EA9C6-1660-4445-9D92-02003CE51B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9EA9C6-1660-4445-9D92-02003CE51B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9EA9C6-1660-4445-9D92-02003CE51B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DD49480D-B956-4CFB-AB7B-BFB2DB76C706} = {BACAA848-5318-494B-A676-A1D1CA6D2DFD}
+		{A855CCEC-B2F8-4B5C-BD80-36B0C55DC300} = {A5E544CE-D0D6-4DCC-9D36-1E8DB4F6BDD8}
+		{2E9EA9C6-1660-4445-9D92-02003CE51B3B} = {7D899D98-41AD-4D27-B4A7-7ACCDB31BCE5}
+	EndGlobalSection
+EndGlobal

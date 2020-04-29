@@ -1,0 +1,10 @@
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\Persistencia.dll.config
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\Persistencia.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\Persistencia.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\EntityFramework.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\EntityFramework.xml
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\obj\Release\Persistencia.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\obj\Release\Persistencia.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\Persistencia\obj\Release\Persistencia.csprojResolveAssemblyReference.cache

@@ -1,0 +1,320 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="SistemaApoioAlocacaoRH.Master.Main" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Sistema de Apoio a Alocação de Recursos Humanos</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/CSS/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="~/CSS/sb-admin.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery-ui CSS -->
+    <link href="../CSS/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery-ui.structure CSS -->
+    <link href="../CSS/jquery-ui.structure.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery-ui.theme CSS -->
+    <link href="../CSS/jquery-ui.theme.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom Fonts -->
+    <link href="~/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Morris Charts CSS -->
+    <link href="../CSS/plugins/morris.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="Scripts/jquery-1.11.0.js" type="text/javascript"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- jQuery-ui Version 1.11.3 -->
+    <script src="../Scripts/jquery-ui.js" type="text/javascript"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../Scripts/plugins/morris/raphael.min.js"></script>
+    <script src="../Scripts/plugins/morris/morris.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" autocomplete="off">
+        <asp:ScriptManager runat="server" />
+        <div id="wrapper">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <asp:HyperLink runat="server" CssClass="navbar-brand" NavigateUrl="~/Default.aspx">
+                        <asp:Image ID="imgSAARHIcon" runat="server" ImageUrl="~/Images/SAARHIcon.png" />
+                    </asp:HyperLink>
+                </div>
+                <!-- Top Menu Items -->
+                <ul class="nav navbar-right top-nav">
+                    <li class="dropdown" id="liMensagem" runat="server" visible="False">
+                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i>
+                         <asp:Label ID="lblquantidadeMensagens" runat="server" CssClass="badge" />    
+                        <b class="caret"></b>
+                        </asp:HyperLink>
+                        <ul class="dropdown-menu message-dropdown">
+                            <asp:Repeater ID="rptProjetosFinalizados" runat="server" OnItemDataBound="rptProjetosFinalizados_ItemDataBound">
+                                <ItemTemplate>
+                                    <li class="message-preview">
+                                        <asp:HyperLink ID="lnkAvaliarProj" runat="server" NavigateUrl="#">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h5 class="media-heading">
+                                                        <strong>
+                                                            <asp:Label runat="server" ID="lblNomeUsuarioMensagem" />
+                                                        </strong>
+                                                    </h5>
+                                                    <p class="small text-muted">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        <asp:Label runat="server" ID="lblDataMensagem"/>
+                                                    </p>
+                                                    <asp:Label runat="server" ID="lblMensagem"></asp:Label>
+                                                </div>
+                                            </div>
+                                        </asp:HyperLink>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <asp:HyperLink runat="server" ID="lnkUsuario" NavigateUrl="javascript:void(0);" CssClass="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <asp:Label runat="server" ID="lblUsuario" />
+                            <b class="caret"></b>
+                        </asp:HyperLink>
+                        <ul class="dropdown-menu">
+                            <%--<li>
+                                <asp:HyperLink runat="server" ID="lnkPerfilUsuario">
+                                    <i class="fa fa-fw fa-user"></i>
+                                    <asp:Label runat="server" ID="lblPerfilDropDown" Text="Perfil" />
+                                </asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink runat="server" ID="lnkConfig">
+                                    <i class="fa fa-fw fa-gear"></i>
+                                    <asp:Label runat="server" ID="lblConfig" Text="Configurações" />
+                                </asp:HyperLink>
+                            </li>
+                            <li class="divider"></li>--%>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lnkLogOut" OnClick="lnkLogOut_Click" CausesValidation="false">
+                                    <i class="fa fa-fw fa-power-off"></i>
+                                    <asp:Label runat="server" ID="lblLogOut" Text="Sair" />
+                                </asp:LinkButton>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav">
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkConsultaRecursos" NavigateUrl="~/ConsultarRecursos.aspx">
+                                <i class="fa fa-fw fa-search"></i>
+                                <asp:Label runat="server" ID="lblConsultarRecursos" Text="Consultar Recursos" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkCadastrarUsuario" NavigateUrl="~/CadastrarUsuario.aspx">
+                                <i class="fa fa-fw fa-user-plus"></i>
+                                <asp:Label runat="server" ID="lblCadastrarUsuario" Text="Cadastrar Usuário" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkCadastrarCompetencia" NavigateUrl="~/CadastrarCompetencia.aspx">
+                                <i class="fa fa-fw fa-plus-square"></i>
+                                <asp:Label runat="server" ID="lblCadastrarCompetencia" Text="Cadastrar Competências" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkAtualizarCompetencias" NavigateUrl="~/AtualizarCompetencias.aspx">
+                                <i class="fa fa-fw fa-pencil"></i>
+                                <asp:Label runat="server" ID="lblAtualizarCompetencias" Text="Atualizar Competências" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkCadastrarProjeto" NavigateUrl="~/CadastrarProjeto.aspx">
+                                <i class="fa fa-fw fa-edit"></i>
+                                <asp:Label runat="server" ID="lblCadastrarProjeto" Text="Cadastrar Projeto" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkConsultarProjeto" NavigateUrl="~/ConsultarProjetos.aspx">
+                                <i class="fa fa-fw fa-list-alt"></i>
+                                <asp:Label runat="server" ID="lblConsultarProjetos" Text="Consultar Projetos" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkSelecionarEquipe" NavigateUrl="~/BuscarEquipe.aspx">
+                                <i class="fa fa-fw fa-tachometer"></i>
+                                <asp:Label runat="server" ID="lblSelecionarEquipe" Text="Selecionar Equipe" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkAvaliarEquipe" NavigateUrl="~/AvaliarEquipe.aspx">
+                                <i class="fa fa-fw fa-bar-chart"></i>
+                                <asp:Label runat="server" ID="lblAvaliarEquipe" Text="Avaliar Equipe" />
+                            </asp:HyperLink>                            
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkPerfil" NavigateUrl="~/Perfil.aspx">
+                                <i class="fa fa-fw fa-user"></i>
+                                <asp:Label runat="server" ID="lblPerfil" Text="Perfil" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkAdicionarCompetencias" NavigateUrl="~/AdicionarCompetenciasPerfil.aspx">
+                                <i class="fa fa-fw fa-user-plus"></i>
+                                <asp:Label runat="server" ID="lblAdicionarCompetencias" Text="Adicionar Competências" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkVisualizarHistorico" NavigateUrl="~/VisualizarHistorico.aspx">
+                                <i class="fa fa-fw fa-signal"></i>
+                                <asp:Label runat="server" ID="lblVisualizarHistorico" Text="Histórico dos Funcionários" />
+                            </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkConsultarCompetencias" NavigateUrl="~/ConsultarCompetencias.aspx">
+                                <i class="fa fa-fw fa-search-plus"></i>
+                                <asp:Label runat="server" ID="lblConsultarCompetencias" Text="Consultar Competências" />
+                            </asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="modal fade" id="modalErro" role="dialog">
+                <div class="modal-dialog modal-vertical-centered">
+                    <div class="modal-content error">
+                        <div class="modal-header headerError">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblErro" runat="server" Text="Erro!" />
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblErroMsg" runat="server" />
+                        </div>
+                        <div class="modal-footer footerError">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            <div class="modal fade" id="modalWarning" role="dialog">
+                <div class="modal-dialog modal-vertical-centered">
+                    <div class="modal-content warning">
+                        <div class="modal-header headerNoBorder">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblAtencao" runat="server" Text="Atenção!" />
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblAtencaoMsg" runat="server" />
+                        </div>
+                        <div class="modal-footer footerNoBorder">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+            <div class="modal fade" id="modalSuccess" role="dialog">
+                <div class="modal-dialog modal-sm modal-vertical-centered">
+                    <div class="modal-content sucesso">
+                        <div class="modal-header headerNoBorder">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblSucesso" runat="server" Text="Sucesso!" />
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblSucessoMsg" runat="server" />
+                        </div>
+                        <div class="modal-footer footerNoBorder">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- funcções javascript devem estar dentro da tag "form" para serem chamadas do code-behind -->
+        <script type="text/javascript">
+            function showError() {
+                $("#modalErro").modal('show');
+            }
+
+            function showWarning() {
+                $("#modalWarning").modal('show');
+            }
+
+            function showSuccess() {
+                $("#modalSuccess").modal('show');
+            }
+
+            $(document).ready(function () {
+                $("input[data-datepicker='true']").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    nextText: 'Próximo',
+                    prevText: 'Anterior'
+                });
+            });
+        </script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E9EA9C6-1660-4445-9D92-02003CE51B3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Persistencia</RootNamespace>
+    <AssemblyName>Persistencia</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adaptador.cs" />
+    <Compile Include="AtitudeDAOSQL.cs" />
+    <Compile Include="Avaliacao.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AvaliacaoDAOSQL.cs" />
+    <Compile Include="Competencia.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConhecimentoDAOSQL.cs" />
+    <Compile Include="DropDownItem.cs" />
+    <Compile Include="DTO\AlterarProjetoDTO.cs" />
+    <Compile Include="DTO\CompetenciaNivelDTO.cs" />
+    <Compile Include="DTO\ConsultarProjetosGridDTO.cs" />
+    <Compile Include="DTO\ConsultarRHGridDTO.cs" />
+    <Compile Include="DTO\ProjetoUsuarioDTO.cs" />
+    <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="EquipeDAOSQL.cs" />
+    <Compile Include="Excecoes\AvaliacaoExcecao.cs" />
+    <Compile Include="Excecoes\EquipeExcecao.cs" />
+    <Compile Include="Excecoes\ProjetoExcecao.cs" />
+    <Compile Include="Excecoes\TipoCompetenciaExcecao.cs" />
+    <Compile Include="Excecoes\UsuarioExcecao.cs" />
+    <Compile Include="Excecoes\AtitudeExcecao.cs" />
+    <Compile Include="Excecoes\ConhecimentoExcecao.cs" />
+    <Compile Include="Excecoes\HabilidadeExcecao.cs" />
+    <Compile Include="HabilidadeDAOSQL.cs" />
+    <Compile Include="Projeto.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjetoDAOSQL.cs" />
+    <Compile Include="Projeto_Funcionario.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAARHModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAARHModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAARHModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAARHModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAARHModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetRecursosHumanos_Result.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoCompetenciaDAOSQL.cs" />
+    <Compile Include="Tipo_Competencia.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Usuario.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioDAOSQL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usu_Aval_Comp.cs">
+      <DependentUpon>SAARHModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="SAARHModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SAARHModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SAARHModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SAARHModel.edmx</DependentUpon>
+      <LastGenOutput>SAARHModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SAARHModel.edmx.diagram">
+      <DependentUpon>SAARHModel.edmx</DependentUpon>
+    </None>
+    <None Include="SAARHModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SAARHModel.edmx</DependentUpon>
+      <LastGenOutput>SAARHModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

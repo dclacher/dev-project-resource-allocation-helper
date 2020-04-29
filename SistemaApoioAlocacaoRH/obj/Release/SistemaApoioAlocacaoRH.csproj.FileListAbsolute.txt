@@ -1,0 +1,14 @@
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\SistemaApoioAlocacaoRH.dll.config
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\SistemaApoioAlocacaoRH.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\SistemaApoioAlocacaoRH.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\obj\Release\SistemaApoioAlocacaoRH.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\obj\Release\SistemaApoioAlocacaoRH.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\EntityFramework.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\EntityFramework.SqlServer.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\Negocio.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\Persistencia.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\Negocio.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\Persistencia.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\EntityFramework.xml
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\bin\EntityFramework.SqlServer.xml
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\TCC\SistemaApoioAlocacaoRH\SistemaApoioAlocacaoRH\obj\Release\SistemaApoioAlocacaoRH.csprojResolveAssemblyReference.cache

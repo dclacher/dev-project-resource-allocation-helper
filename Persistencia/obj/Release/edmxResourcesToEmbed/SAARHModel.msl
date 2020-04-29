@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SAARHModelStoreContainer" CdmEntityContainer="SAARHEntities">
+    <EntitySetMapping Name="Avaliacaos">
+      <EntityTypeMapping TypeName="SAARHModel.Avaliacao">
+        <MappingFragment StoreEntitySet="Avaliacao">
+          <ScalarProperty Name="aval_id" ColumnName="aval_id" />
+          <ScalarProperty Name="aval_nivel" ColumnName="aval_nivel" />
+          <ScalarProperty Name="aval_data" ColumnName="aval_data" />
+          <ScalarProperty Name="aval_usu_id" ColumnName="aval_usu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competencias">
+      <EntityTypeMapping TypeName="SAARHModel.Competencia">
+        <MappingFragment StoreEntitySet="Competencia">
+          <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+          <ScalarProperty Name="comp_nome" ColumnName="comp_nome" />
+          <ScalarProperty Name="comp_descricao" ColumnName="comp_descricao" />
+          <ScalarProperty Name="comp_tcom_id" ColumnName="comp_tcom_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projetoes">
+      <EntityTypeMapping TypeName="SAARHModel.Projeto">
+        <MappingFragment StoreEntitySet="Projeto">
+          <ScalarProperty Name="proj_id" ColumnName="proj_id" />
+          <ScalarProperty Name="proj_nome" ColumnName="proj_nome" />
+          <ScalarProperty Name="proj_descricao" ColumnName="proj_descricao" />
+          <ScalarProperty Name="proj_data_inicio" ColumnName="proj_data_inicio" />
+          <ScalarProperty Name="proj_data_termino" ColumnName="proj_data_termino" />
+          <ScalarProperty Name="proj_status" ColumnName="proj_status" />
+          <ScalarProperty Name="proj_prioridade" ColumnName="proj_prioridade" />
+          <ScalarProperty Name="proj_usu_id" ColumnName="proj_usu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projeto_Funcionario">
+      <EntityTypeMapping TypeName="SAARHModel.Projeto_Funcionario">
+        <MappingFragment StoreEntitySet="Projeto_Funcionario">
+          <ScalarProperty Name="prfu_id" ColumnName="prfu_id" />
+          <ScalarProperty Name="prfu_data_inicio" ColumnName="prfu_data_inicio" />
+          <ScalarProperty Name="prfu_data_termino" ColumnName="prfu_data_termino" />
+          <ScalarProperty Name="prfu_usu_id" ColumnName="prfu_usu_id" />
+          <ScalarProperty Name="prfu_proj_id" ColumnName="prfu_proj_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Competencia">
+      <EntityTypeMapping TypeName="SAARHModel.Tipo_Competencia">
+        <MappingFragment StoreEntitySet="Tipo_Competencia">
+          <ScalarProperty Name="tcom_id" ColumnName="tcom_id" />
+          <ScalarProperty Name="tcom_nome" ColumnName="tcom_nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Usuario">
+      <EntityTypeMapping TypeName="SAARHModel.Tipo_Usuario">
+        <MappingFragment StoreEntitySet="Tipo_Usuario">
+          <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
+          <ScalarProperty Name="tipo_nome" ColumnName="tipo_nome" />
+          <ScalarProperty Name="tipo_descricao" ColumnName="tipo_descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usu_Aval_Comp">
+      <EntityTypeMapping TypeName="SAARHModel.Usu_Aval_Comp">
+        <MappingFragment StoreEntitySet="Usu_Aval_Comp">
+          <ScalarProperty Name="uac_usu_id" ColumnName="uac_usu_id" />
+          <ScalarProperty Name="uac_aval_id" ColumnName="uac_aval_id" />
+          <ScalarProperty Name="uac_comp_id" ColumnName="uac_comp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SAARHModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="usu_salt" ColumnName="usu_salt" />
+          <ScalarProperty Name="usu_id" ColumnName="usu_id" />
+          <ScalarProperty Name="usu_nome" ColumnName="usu_nome" />
+          <ScalarProperty Name="usu_sobrenome" ColumnName="usu_sobrenome" />
+          <ScalarProperty Name="usu_nome_usuario" ColumnName="usu_nome_usuario" />
+          <ScalarProperty Name="usu_senha" ColumnName="usu_senha" />
+          <ScalarProperty Name="usu_tipo_id" ColumnName="usu_tipo_id" />
+          <ScalarProperty Name="usu_email" ColumnName="usu_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Projeto_Competencia" TypeName="SAARHModel.Projeto_Competencia" StoreEntitySet="Projeto_Competencia">
+      <EndProperty Name="Projeto">
+        <ScalarProperty Name="proj_id" ColumnName="prco_proj_id" />
+      </EndProperty>
+      <EndProperty Name="Competencia">
+        <ScalarProperty Name="comp_id" ColumnName="prco_comp_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetRecursosHumanos" FunctionName="SAARHModel.Store.SP_GetRecursosHumanos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SAARHModel.SP_GetRecursosHumanos_Result">
+          <ScalarProperty Name="tmp_id" ColumnName="tmp_id" />
+          <ScalarProperty Name="tmp_nome" ColumnName="tmp_nome" />
+          <ScalarProperty Name="tmp_sobrenome" ColumnName="tmp_sobrenome" />
+          <ScalarProperty Name="tmp_comp_nivel0" ColumnName="tmp_comp_nivel0" />
+          <ScalarProperty Name="tmp_comp_id0" ColumnName="tmp_comp_id0" />
+          <ScalarProperty Name="tmp_comp_nivel1" ColumnName="tmp_comp_nivel1" />
+          <ScalarProperty Name="tmp_comp_id1" ColumnName="tmp_comp_id1" />
+          <ScalarProperty Name="tmp_comp_nivel2" ColumnName="tmp_comp_nivel2" />
+          <ScalarProperty Name="tmp_comp_id2" ColumnName="tmp_comp_id2" />
+          <ScalarProperty Name="tmp_comp_nivel3" ColumnName="tmp_comp_nivel3" />
+          <ScalarProperty Name="tmp_comp_id3" ColumnName="tmp_comp_id3" />
+          <ScalarProperty Name="tmp_comp_nivel4" ColumnName="tmp_comp_nivel4" />
+          <ScalarProperty Name="tmp_comp_id4" ColumnName="tmp_comp_id4" />
+          <ScalarProperty Name="tmp_comp_nivel5" ColumnName="tmp_comp_nivel5" />
+          <ScalarProperty Name="tmp_comp_id5" ColumnName="tmp_comp_id5" />
+          <ScalarProperty Name="tmp_comp_nivel6" ColumnName="tmp_comp_nivel6" />
+          <ScalarProperty Name="tmp_comp_id6" ColumnName="tmp_comp_id6" />
+          <ScalarProperty Name="tmp_comp_nivel7" ColumnName="tmp_comp_nivel7" />
+          <ScalarProperty Name="tmp_comp_id7" ColumnName="tmp_comp_id7" />
+          <ScalarProperty Name="tmp_comp_nivel8" ColumnName="tmp_comp_nivel8" />
+          <ScalarProperty Name="tmp_comp_id8" ColumnName="tmp_comp_id8" />
+          <ScalarProperty Name="tmp_comp_nivel9" ColumnName="tmp_comp_nivel9" />
+          <ScalarProperty Name="tmp_comp_id9" ColumnName="tmp_comp_id9" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAARHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Avaliacao">
+    <Key>
+      <PropertyRef Name="aval_id" />
+    </Key>
+    <Property Name="aval_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aval_nivel" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="aval_data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="aval_usu_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Avaliacao__aval___1FCDBCEB" FromRole="Avaliacao" ToRole="Usuario" />
+    <NavigationProperty Name="Usu_Aval_Comp" Relationship="Self.FK__Usu_Aval___uac_a__239E4DCF" FromRole="Avaliacao" ToRole="Usu_Aval_Comp" />
+  </EntityType>
+  <EntityType Name="Competencia">
+    <Key>
+      <PropertyRef Name="comp_id" />
+    </Key>
+    <Property Name="comp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comp_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="comp_descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="comp_tcom_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tipo_Competencia" Relationship="Self.FK__Competenc__comp___29572725" FromRole="Competencia" ToRole="Tipo_Competencia" />
+    <NavigationProperty Name="Usu_Aval_Comp" Relationship="Self.FK__Usu_Aval___uac_c__24927208" FromRole="Competencia" ToRole="Usu_Aval_Comp" />
+    <NavigationProperty Name="Projetoes" Relationship="Self.Projeto_Competencia" FromRole="Competencia" ToRole="Projeto" />
+  </EntityType>
+  <EntityType Name="Projeto">
+    <Key>
+      <PropertyRef Name="proj_id" />
+    </Key>
+    <Property Name="proj_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proj_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="proj_descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="proj_data_inicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="proj_data_termino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="proj_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="proj_prioridade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="proj_usu_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Projeto__proj_us__145C0A3F" FromRole="Projeto" ToRole="Usuario" />
+    <NavigationProperty Name="Projeto_Funcionario" Relationship="Self.FK__Projeto_F__prfu___182C9B23" FromRole="Projeto" ToRole="Projeto_Funcionario" />
+    <NavigationProperty Name="Competencias" Relationship="Self.Projeto_Competencia" FromRole="Projeto" ToRole="Competencia" />
+  </EntityType>
+  <EntityType Name="Projeto_Funcionario">
+    <Key>
+      <PropertyRef Name="prfu_id" />
+    </Key>
+    <Property Name="prfu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prfu_data_inicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="prfu_data_termino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="prfu_usu_id" Type="Int32" Nullable="false" />
+    <Property Name="prfu_proj_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Projeto" Relationship="Self.FK__Projeto_F__prfu___182C9B23" FromRole="Projeto_Funcionario" ToRole="Projeto" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Projeto_F__prfu___173876EA" FromRole="Projeto_Funcionario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Tipo_Competencia">
+    <Key>
+      <PropertyRef Name="tcom_id" />
+    </Key>
+    <Property Name="tcom_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tcom_nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Competencias" Relationship="Self.FK__Competenc__comp___29572725" FromRole="Tipo_Competencia" ToRole="Competencia" />
+  </EntityType>
+  <EntityType Name="Tipo_Usuario">
+    <Key>
+      <PropertyRef Name="tipo_id" />
+    </Key>
+    <Property Name="tipo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo_descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuario__usu_tip__276EDEB3" FromRole="Tipo_Usuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usu_Aval_Comp">
+    <Key>
+      <PropertyRef Name="uac_usu_id" />
+      <PropertyRef Name="uac_aval_id" />
+      <PropertyRef Name="uac_comp_id" />
+    </Key>
+    <Property Name="uac_usu_id" Type="Int32" Nullable="false" />
+    <Property Name="uac_aval_id" Type="Int32" Nullable="false" />
+    <Property Name="uac_comp_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Avaliacao" Relationship="Self.FK__Usu_Aval___uac_a__239E4DCF" FromRole="Usu_Aval_Comp" ToRole="Avaliacao" />
+    <NavigationProperty Name="Competencia" Relationship="Self.FK__Usu_Aval___uac_c__24927208" FromRole="Usu_Aval_Comp" ToRole="Competencia" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usu_Aval___uac_u__22AA2996" FromRole="Usu_Aval_Comp" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="usu_id" />
+    </Key>
+    <Property Name="usu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usu_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_sobrenome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_nome_usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_senha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_tipo_id" Type="Int32" Nullable="false" />
+    <Property Name="usu_email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Avaliacaos" Relationship="Self.FK__Avaliacao__aval___1FCDBCEB" FromRole="Usuario" ToRole="Avaliacao" />
+    <NavigationProperty Name="Projetoes" Relationship="Self.FK__Projeto__proj_us__145C0A3F" FromRole="Usuario" ToRole="Projeto" />
+    <NavigationProperty Name="Projeto_Funcionario" Relationship="Self.FK__Projeto_F__prfu___173876EA" FromRole="Usuario" ToRole="Projeto_Funcionario" />
+    <NavigationProperty Name="Tipo_Usuario" Relationship="Self.FK__Usuario__usu_tip__276EDEB3" FromRole="Usuario" ToRole="Tipo_Usuario" />
+    <NavigationProperty Name="Usu_Aval_Comp" Relationship="Self.FK__Usu_Aval___uac_u__22AA2996" FromRole="Usuario" ToRole="Usu_Aval_Comp" />
+    <Property Name="usu_salt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Avaliacao__aval___1FCDBCEB">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="usu_id" />
+      </Principal>
+      <Dependent Role="Avaliacao">
+        <PropertyRef Name="aval_usu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usu_Aval___uac_a__239E4DCF">
+    <End Role="Avaliacao" Type="Self.Avaliacao" Multiplicity="1" />
+    <End Role="Usu_Aval_Comp" Type="Self.Usu_Aval_Comp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avaliacao">
+        <PropertyRef Name="aval_id" />
+      </Principal>
+      <Dependent Role="Usu_Aval_Comp">
+        <PropertyRef Name="uac_aval_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Competenc__comp___29572725">
+    <End Role="Tipo_Competencia" Type="Self.Tipo_Competencia" Multiplicity="1" />
+    <End Role="Competencia" Type="Self.Competencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Competencia">
+        <PropertyRef Name="tcom_id" />
+      </Principal>
+      <Dependent Role="Competencia">
+        <PropertyRef Name="comp_tcom_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usu_Aval___uac_c__24927208">
+    <End Role="Competencia" Type="Self.Competencia" Multiplicity="1" />
+    <End Role="Usu_Aval_Comp" Type="Self.Usu_Aval_Comp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competencia">
+        <PropertyRef Name="comp_id" />
+      </Principal>
+      <Dependent Role="Usu_Aval_Comp">
+        <PropertyRef Name="uac_comp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projeto__proj_us__145C0A3F">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="usu_id" />
+      </Principal>
+      <Dependent Role="Projeto">
+        <PropertyRef Name="proj_usu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projeto_F__prfu___182C9B23">
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+    <End Role="Projeto_Funcionario" Type="Self.Projeto_Funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="proj_id" />
+      </Principal>
+      <Dependent Role="Projeto_Funcionario">
+        <PropertyRef Name="prfu_proj_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projeto_F__prfu___173876EA">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Projeto_Funcionario" Type="Self.Projeto_Funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="usu_id" />
+      </Principal>
+      <Dependent Role="Projeto_Funcionario">
+        <PropertyRef Name="prfu_usu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__usu_tip__276EDEB3">
+    <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Usuario">
+        <PropertyRef Name="tipo_id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="usu_tipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usu_Aval___uac_u__22AA2996">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Usu_Aval_Comp" Type="Self.Usu_Aval_Comp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="usu_id" />
+      </Principal>
+      <Dependent Role="Usu_Aval_Comp">
+        <PropertyRef Name="uac_usu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Projeto_Competencia">
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+    <End Role="Competencia" Type="Self.Competencia" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SAARHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Avaliacaos" EntityType="Self.Avaliacao" />
+    <EntitySet Name="Competencias" EntityType="Self.Competencia" />
+    <EntitySet Name="Projetoes" EntityType="Self.Projeto" />
+    <EntitySet Name="Projeto_Funcionario" EntityType="Self.Projeto_Funcionario" />
+    <EntitySet Name="Tipo_Competencia" EntityType="Self.Tipo_Competencia" />
+    <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
+    <EntitySet Name="Usu_Aval_Comp" EntityType="Self.Usu_Aval_Comp" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Avaliacao__aval___1FCDBCEB" Association="Self.FK__Avaliacao__aval___1FCDBCEB">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Avaliacao" EntitySet="Avaliacaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usu_Aval___uac_a__239E4DCF" Association="Self.FK__Usu_Aval___uac_a__239E4DCF">
+      <End Role="Avaliacao" EntitySet="Avaliacaos" />
+      <End Role="Usu_Aval_Comp" EntitySet="Usu_Aval_Comp" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Competenc__comp___29572725" Association="Self.FK__Competenc__comp___29572725">
+      <End Role="Tipo_Competencia" EntitySet="Tipo_Competencia" />
+      <End Role="Competencia" EntitySet="Competencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usu_Aval___uac_c__24927208" Association="Self.FK__Usu_Aval___uac_c__24927208">
+      <End Role="Competencia" EntitySet="Competencias" />
+      <End Role="Usu_Aval_Comp" EntitySet="Usu_Aval_Comp" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projeto__proj_us__145C0A3F" Association="Self.FK__Projeto__proj_us__145C0A3F">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Projeto" EntitySet="Projetoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projeto_F__prfu___182C9B23" Association="Self.FK__Projeto_F__prfu___182C9B23">
+      <End Role="Projeto" EntitySet="Projetoes" />
+      <End Role="Projeto_Funcionario" EntitySet="Projeto_Funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projeto_F__prfu___173876EA" Association="Self.FK__Projeto_F__prfu___173876EA">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Projeto_Funcionario" EntitySet="Projeto_Funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__usu_tip__276EDEB3" Association="Self.FK__Usuario__usu_tip__276EDEB3">
+      <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usu_Aval___uac_u__22AA2996" Association="Self.FK__Usu_Aval___uac_u__22AA2996">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Usu_Aval_Comp" EntitySet="Usu_Aval_Comp" />
+    </AssociationSet>
+    <AssociationSet Name="Projeto_Competencia" Association="Self.Projeto_Competencia">
+      <End Role="Projeto" EntitySet="Projetoes" />
+      <End Role="Competencia" EntitySet="Competencias" />
+    </AssociationSet>
+    <FunctionImport Name="SP_GetRecursosHumanos" ReturnType="Collection(SAARHModel.SP_GetRecursosHumanos_Result)">
+      <Parameter Name="comp0" Mode="In" Type="Int32" />
+      <Parameter Name="comp1" Mode="In" Type="Int32" />
+      <Parameter Name="comp2" Mode="In" Type="Int32" />
+      <Parameter Name="comp3" Mode="In" Type="Int32" />
+      <Parameter Name="comp4" Mode="In" Type="Int32" />
+      <Parameter Name="comp5" Mode="In" Type="Int32" />
+      <Parameter Name="comp6" Mode="In" Type="Int32" />
+      <Parameter Name="comp7" Mode="In" Type="Int32" />
+      <Parameter Name="comp8" Mode="In" Type="Int32" />
+      <Parameter Name="comp9" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_GetRecursosHumanos_Result">
+    <Property Type="Int32" Name="tmp_id" Nullable="true" />
+    <Property Type="String" Name="tmp_nome" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tmp_sobrenome" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="tmp_comp_nivel0" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id0" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel1" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id1" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel2" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id2" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel3" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id3" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel4" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id4" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel5" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id5" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel6" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id6" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel7" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id7" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel8" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id8" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_nivel9" Nullable="true" />
+    <Property Type="Int32" Name="tmp_comp_id9" Nullable="true" />
+  </ComplexType>
+</Schema>
